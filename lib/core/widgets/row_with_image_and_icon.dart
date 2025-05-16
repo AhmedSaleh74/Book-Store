@@ -20,7 +20,7 @@ class RowWithImageAndIcon extends StatelessWidget {
         CustomAssetImage(pathImage: imagePath, width: 60, height: 60),
         IconButton(
           onPressed: onIconTap,
-          icon: CustomAssetImage(pathImage: iconPath, width: 30, height: 30),
+          icon: CustomAssetImage(pathImage: iconPath, width: 20, height: 20),
           splashRadius: 24,
         ),
       ],
