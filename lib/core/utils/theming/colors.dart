@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-class ColorsManager {
+abstract class ColorsManager {
   static const Color kPrimaryColor = Color(0xFF000B33);
   static const Color white = Color(0xFFFFFFFF);
   static const Color woodsmoke = Color(0xFF18181B);

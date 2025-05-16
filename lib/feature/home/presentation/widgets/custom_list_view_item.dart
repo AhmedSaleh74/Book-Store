@@ -1,4 +1,7 @@
+import 'package:bookly_app/feature/home/presentation/widgets/book_image_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../constant.dart';
 
 class FeaturedListBookItem extends StatelessWidget {
   const FeaturedListBookItem({super.key});
@@ -6,19 +9,8 @@ class FeaturedListBookItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: AspectRatio(
-        aspectRatio: 2.8 / 4,
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/test_image.png'),
-              fit: BoxFit.cover,
-            ),
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
-      ),
+      padding: const EdgeInsets.only(right: 12.0),
+      child: BookImageCard(imagePath: kTestImage),
     );
   }
 }
