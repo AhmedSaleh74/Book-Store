@@ -7,7 +7,7 @@ class SimilarItemListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.16,
+      height: MediaQuery.sizeOf(context).height * 0.2,
       child: ListView.builder(
         padding: const EdgeInsets.only(right: 4.0),
         itemCount: 10,
