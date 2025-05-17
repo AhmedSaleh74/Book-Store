@@ -1,5 +1,3 @@
-import 'package:bookly_app/constant.dart';
-import 'package:bookly_app/core/widgets/custom_asset_image.dart';
 import 'package:bookly_app/feature/search/presentation/widgets/search_result_list_view.dart';
 import 'package:flutter/material.dart';
 
