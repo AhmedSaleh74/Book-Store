@@ -15,11 +15,11 @@ abstract class AppRoutes {
     routes: [
       GoRoute(path: kSplash, builder: (context, state) => const SplashView()),
       GoRoute(path: kHome, builder: (context, state) => const HomeScreen()),
-      GoRoute(path: kSearch, builder: (context, state) => const SearchScreen()),
       GoRoute(
         path: kBookDetails,
         builder: (context, state) => const BookDetailsScreen(),
       ),
+      GoRoute(path: kSearch, builder: (context, state) => const SearchScreen()),
     ],
   );
 }
