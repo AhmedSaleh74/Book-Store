@@ -13,7 +13,7 @@ class HomeScreenBody extends StatelessWidget {
     return const SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.symmetric(horizontal: 8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

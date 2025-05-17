@@ -1,4 +1,6 @@
+import 'package:bookly_app/feature/home/presentation/widgets/book_details/books_action.dart';
 import 'package:bookly_app/feature/home/presentation/widgets/book_details/custom_app_bar.dart';
+import 'package:bookly_app/feature/home/presentation/widgets/book_details/similar_item_list_view.dart';
 import 'package:bookly_app/feature/home/presentation/widgets/book_image_card.dart';
 import 'package:bookly_app/feature/home/presentation/widgets/book_rating.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,20 @@ class BookDetailsScreenBody extends StatelessWidget {
                   color: Colors.white.withOpacity(.7),
                 ),
               ),
+              const SizedBox(height: 18),
               const BookRating(mainAxisAlignment: MainAxisAlignment.center),
+              const SizedBox(height: 37),
+              const BooksAction(),
+              const SizedBox(height: 37),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: const Text(
+                  'You can also like',
+                  style: TextStyles.font14SemiBold,
+                ),
+              ),
+              const SizedBox(height: 18),
+              const Expanded(child: SimilarItemListView()),
             ],
           ),
         ),
