@@ -15,7 +15,7 @@ class BookDetailsSection extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: MediaQuery.sizeOf(context).width * 0.18,
+            horizontal: MediaQuery.sizeOf(context).width * 0.26,
           ),
           child: const BookImageCard(imagePath: kTestImage),
         ),
@@ -32,7 +32,10 @@ class BookDetailsSection extends StatelessWidget {
         const SizedBox(height: 18),
         const BookRating(mainAxisAlignment: MainAxisAlignment.center),
         const SizedBox(height: 37),
-        const BooksAction(),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: const BooksAction(),
+        ),
       ],
     );
   }

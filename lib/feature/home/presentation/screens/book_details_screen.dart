@@ -6,6 +6,6 @@ class BookDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BookDetailsScreenBody();
+    return const BookDetailsScreenBody();
   }
 }
