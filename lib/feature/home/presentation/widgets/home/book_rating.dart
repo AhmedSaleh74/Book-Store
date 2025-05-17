@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constant.dart';
-import '../../../../core/utils/theming/styles.dart';
-import '../../../../core/widgets/custom_asset_image.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/utils/theming/styles.dart';
+import '../../../../../core/widgets/custom_asset_image.dart';
 
 class BookRating extends StatelessWidget {
   const BookRating({super.key});

@@ -1,7 +1,6 @@
+import 'package:bookly_app/constant.dart';
+import 'package:bookly_app/core/widgets/row_with_image_and_icon.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../constant.dart';
-import '../../../../core/widgets/row_with_image_and_icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -9,8 +8,10 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RowWithImageAndIcon(
-      imagePath: kLogo,
-      iconPath: kSearchIcon,
+      imagePath: kXIcon,
+      iconPath: kBasketIcon,
+      width: 20,
+      height: 20,
       onIconTap: () {},
     );
   }

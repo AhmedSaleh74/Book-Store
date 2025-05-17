@@ -7,9 +7,13 @@ class RowWithImageAndIcon extends StatelessWidget {
     required this.imagePath,
     required this.iconPath,
     this.onIconTap,
+    this.width,
+    this.height,
   });
   final String imagePath;
   final String iconPath;
+  final double? width;
+  final double? height;
   final VoidCallback? onIconTap;
 
   @override
@@ -17,10 +21,18 @@ class RowWithImageAndIcon extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomAssetImage(pathImage: imagePath, width: 60, height: 60),
+        CustomAssetImage(
+          pathImage: imagePath,
+          width: width ?? 60,
+          height: height ?? 60,
+        ),
         IconButton(
           onPressed: onIconTap,
-          icon: CustomAssetImage(pathImage: iconPath, width: 20, height: 20),
+          icon: CustomAssetImage(
+            pathImage: iconPath,
+            width: width ?? 20,
+            height: height ?? 20,
+          ),
           splashRadius: 24,
         ),
       ],
