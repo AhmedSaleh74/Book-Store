@@ -5,7 +5,7 @@ import '../../../../../constant.dart';
 import '../../../../../core/utils/routing/app_routes.dart';
 import '../../../../../core/utils/theming/styles.dart';
 import '../book_image_card.dart';
-import 'book_rating.dart';
+import '../book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
