@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../constant.dart';
 import '../../../../core/widgets/custom_asset_image.dart';
 
