@@ -1,7 +1,7 @@
-import 'package:bookly_app/feature/home/presentation/widgets/book_image_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../constant.dart';
+import '../../../../../../constant.dart';
+import '../book_image_card.dart';
 
 class FeaturedListBookItem extends StatelessWidget {
   const FeaturedListBookItem({super.key});

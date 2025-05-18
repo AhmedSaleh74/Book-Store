@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../constant.dart';
-import '../../../../core/widgets/custom_asset_image.dart';
+import '../../../../../constant.dart';
+import '../../../../../core/widgets/custom_asset_image.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key});
