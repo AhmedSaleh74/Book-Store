@@ -1,16 +1,17 @@
 import 'package:bookly_app/feature/home/presentation/screens/widgets/book_details/similar_books_section.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../manager/similar_books_cubit/similar_books_cubit.dart';
-import '../home/custom_app_bar.dart';
+import 'package:go_router/go_router.dart';
+import '../../../../../../core/utils/routing/app_routes.dart';
+import '../../../../data/models/book_model.dart';
+import 'custom_app_bar.dart';
 import 'books_details_section.dart';
 
 class BookDetailsScreenBody extends StatelessWidget {
-  const BookDetailsScreenBody({super.key});
-
+  const BookDetailsScreenBody({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
@@ -20,13 +21,13 @@ class BookDetailsScreenBody extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: CustomAppBar(),
                   ),
-                  BookDetailsSection(),
-                  SizedBox(height: 37),
-                  SimilarBooksSection(),
-                  SizedBox(height: 20),
+                  BookDetailsSection(bookModel: bookModel),
+                  const SizedBox(height: 37),
+                  const SimilarBooksSection(),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),

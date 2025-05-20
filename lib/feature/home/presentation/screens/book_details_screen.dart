@@ -26,6 +26,6 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return const BookDetailsScreenBody();
+    return BookDetailsScreenBody(bookModel: widget.bookModel);
   }
 }

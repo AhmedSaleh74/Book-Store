@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../../../../core/widgets/custom_button.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
-
+  const BooksAction({super.key, required this.onTapOnFreePreview});
+  final VoidCallback onTapOnFreePreview;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: CustomButton(
-            text: '19.99 EG',
+            text: 'Free',
             btnBackgroundColor: Colors.white,
             topLeftRadius: 16,
             bottomLeftRadius: 16,
@@ -25,7 +25,7 @@ class BooksAction extends StatelessWidget {
             textColor: Colors.white,
             topRightRadius: 16,
             bottomRightRadius: 16,
-            onTap: () {},
+            onTap: onTapOnFreePreview,
           ),
         ),
       ],

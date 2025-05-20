@@ -6,28 +6,33 @@ class RowWithImageAndIcon extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.iconPath,
-    this.onIconTap,
+    this.secondIconOnTap,
     this.width,
     this.height,
+    this.firstIconOnTap,
   });
   final String imagePath;
   final String iconPath;
   final double? width;
   final double? height;
-  final VoidCallback? onIconTap;
+  final VoidCallback? secondIconOnTap;
+  final VoidCallback? firstIconOnTap;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CustomAssetImage(
-          pathImage: imagePath,
-          width: width ?? 60,
-          height: height ?? 60,
+        IconButton(
+          onPressed: firstIconOnTap,
+          icon: CustomAssetImage(
+            pathImage: imagePath,
+            width: width ?? 60,
+            height: height ?? 60,
+          ),
         ),
         IconButton(
-          onPressed: onIconTap,
+          onPressed: secondIconOnTap,
           icon: CustomAssetImage(
             pathImage: iconPath,
             width: width ?? 20,

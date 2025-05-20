@@ -13,7 +13,7 @@ class CustomAppBar extends StatelessWidget {
     return RowWithImageAndIcon(
       imagePath: kLogo,
       iconPath: kSearchIcon,
-      onIconTap: () {
+      secondIconOnTap: () {
         context.push(AppRoutes.kSearch);
       },
     );
