@@ -2,7 +2,7 @@ import 'package:bookly_app/feature/home/presentation/screens/widgets/book_detail
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/models/book_model.dart';
+import '../../../../core/models/book_model.dart';
 import '../manager/similar_books_cubit/similar_books_cubit.dart';
 
 class BookDetailsScreen extends StatefulWidget {

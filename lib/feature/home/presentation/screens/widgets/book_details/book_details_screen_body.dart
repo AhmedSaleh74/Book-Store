@@ -2,7 +2,7 @@ import 'package:bookly_app/feature/home/presentation/screens/widgets/book_detail
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../../core/utils/routing/app_routes.dart';
-import '../../../../data/models/book_model.dart';
+import '../../../../../../core/models/book_model.dart';
 import 'custom_app_bar.dart';
 import 'books_details_section.dart';
 

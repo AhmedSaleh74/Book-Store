@@ -8,18 +8,18 @@ class SearchScreenBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(
+    return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomSearchTextField(),
-              SizedBox(height: 32),
-              Text('Search Result', style: TextStyles.font18Bold),
-              SizedBox(height: 16),
-              Expanded(child: SearchResultListView()),
+              const SizedBox(height: 32),
+              const Text('Search Result', style: TextStyles.font18Bold),
+              const SizedBox(height: 16),
+              const Expanded(child: SearchResultListView()),
             ],
           ),
         ),

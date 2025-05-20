@@ -2,7 +2,7 @@ import 'package:bookly_app/core/utils/functions/launcher_url.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../../../core/utils/theming/styles.dart';
-import '../../../../data/models/book_model.dart';
+import '../../../../../../core/models/book_model.dart';
 import '../book_image_card.dart';
 import '../book_rating.dart';
 import 'books_action.dart';

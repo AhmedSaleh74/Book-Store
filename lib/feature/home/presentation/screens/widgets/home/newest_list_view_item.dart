@@ -1,4 +1,4 @@
-import 'package:bookly_app/feature/home/data/models/book_model.dart';
+import 'package:bookly_app/core/models/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../../../core/utils/routing/app_routes.dart';
