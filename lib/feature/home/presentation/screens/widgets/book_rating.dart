@@ -7,6 +7,7 @@ import '../../../../../core/widgets/custom_asset_image.dart';
 class BookRating extends StatelessWidget {
   const BookRating({super.key, this.mainAxisAlignment});
   final MainAxisAlignment? mainAxisAlignment;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

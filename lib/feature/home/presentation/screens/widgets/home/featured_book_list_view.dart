@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../constant.dart';
 import '../../../../../../core/widgets/error_text_widget.dart';
 import '../../../../../../core/widgets/loading_indicator_widget.dart';
 import '../../../manager/featured_book_cubilt/featured_books_cubit.dart';
@@ -25,7 +24,7 @@ class FeaturedBooksListView extends StatelessWidget {
               itemBuilder: (context, index) {
                 return BookImageCard(
                   imageURL:
-                      state.books[index].volumeInfo.imageLinks.smallThumbnail,
+                      '${state.books[index].volumeInfo?.imageLinks?.smallThumbnail}',
                 );
               },
             ),

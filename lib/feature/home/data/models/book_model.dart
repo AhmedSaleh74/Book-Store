@@ -13,7 +13,7 @@ class BookModel {
   final String? id;
   final String? etag;
   final String? selfLink;
-  final VolumeInfo volumeInfo;
+  final VolumeInfo? volumeInfo;
   final SaleInfo? saleInfo;
   final AccessInfo? accessInfo;
   final SearchInfo? searchInfo;
@@ -23,7 +23,7 @@ class BookModel {
     this.id,
     this.etag,
     this.selfLink,
-    required this.volumeInfo,
+    this.volumeInfo,
     this.saleInfo,
     this.accessInfo,
     this.searchInfo,
@@ -34,7 +34,10 @@ class BookModel {
     id: json["id"],
     etag: json["etag"],
     selfLink: json["selfLink"],
-    volumeInfo: VolumeInfo.fromJson(json["volumeInfo"]),
+    volumeInfo:
+        json["volumeInfo"] == null
+            ? null
+            : VolumeInfo.fromJson(json["volumeInfo"]),
     saleInfo:
         json["saleInfo"] == null ? null : SaleInfo.fromJson(json["saleInfo"]),
     accessInfo:
@@ -66,7 +69,7 @@ class AccessInfo {
   final bool? publicDomain;
   final String? textToSpeechPermission;
   final Epub? epub;
-  final Pdf? pdf;
+  final Epub? pdf;
   final String? webReaderLink;
   final String? accessViewStatus;
   final bool? quoteSharingAllowed;
@@ -91,7 +94,7 @@ class AccessInfo {
     publicDomain: json["publicDomain"],
     textToSpeechPermission: json["textToSpeechPermission"],
     epub: json["epub"] == null ? null : Epub.fromJson(json["epub"]),
-    pdf: json["pdf"] == null ? null : Pdf.fromJson(json["pdf"]),
+    pdf: json["pdf"] == null ? null : Epub.fromJson(json["pdf"]),
     webReaderLink: json["webReaderLink"],
     accessViewStatus: json["accessViewStatus"],
     quoteSharingAllowed: json["quoteSharingAllowed"],
@@ -113,23 +116,14 @@ class AccessInfo {
 
 class Epub {
   final bool? isAvailable;
-
-  Epub({this.isAvailable});
-
-  factory Epub.fromJson(Map<String, dynamic> json) =>
-      Epub(isAvailable: json["isAvailable"]);
-
-  Map<String, dynamic> toJson() => {"isAvailable": isAvailable};
-}
-
-class Pdf {
-  final bool? isAvailable;
   final String? acsTokenLink;
 
-  Pdf({this.isAvailable, this.acsTokenLink});
+  Epub({this.isAvailable, this.acsTokenLink});
 
-  factory Pdf.fromJson(Map<String, dynamic> json) =>
-      Pdf(isAvailable: json["isAvailable"], acsTokenLink: json["acsTokenLink"]);
+  factory Epub.fromJson(Map<String, dynamic> json) => Epub(
+    isAvailable: json["isAvailable"],
+    acsTokenLink: json["acsTokenLink"],
+  );
 
   Map<String, dynamic> toJson() => {
     "isAvailable": isAvailable,
@@ -141,19 +135,112 @@ class SaleInfo {
   final String? country;
   final String? saleability;
   final bool? isEbook;
+  final SaleInfoListPrice? listPrice;
+  final SaleInfoListPrice? retailPrice;
+  final String? buyLink;
+  final List<Offer>? offers;
 
-  SaleInfo({this.country, this.saleability, this.isEbook});
+  SaleInfo({
+    this.country,
+    this.saleability,
+    this.isEbook,
+    this.listPrice,
+    this.retailPrice,
+    this.buyLink,
+    this.offers,
+  });
 
   factory SaleInfo.fromJson(Map<String, dynamic> json) => SaleInfo(
     country: json["country"],
     saleability: json["saleability"],
     isEbook: json["isEbook"],
+    listPrice:
+        json["listPrice"] == null
+            ? null
+            : SaleInfoListPrice.fromJson(json["listPrice"]),
+    retailPrice:
+        json["retailPrice"] == null
+            ? null
+            : SaleInfoListPrice.fromJson(json["retailPrice"]),
+    buyLink: json["buyLink"],
+    offers:
+        json["offers"] == null
+            ? []
+            : List<Offer>.from(json["offers"]!.map((x) => Offer.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
     "country": country,
     "saleability": saleability,
     "isEbook": isEbook,
+    "listPrice": listPrice?.toJson(),
+    "retailPrice": retailPrice?.toJson(),
+    "buyLink": buyLink,
+    "offers":
+        offers == null
+            ? []
+            : List<dynamic>.from(offers!.map((x) => x.toJson())),
+  };
+}
+
+class SaleInfoListPrice {
+  final double? amount;
+  final String? currencyCode;
+
+  SaleInfoListPrice({this.amount, this.currencyCode});
+
+  factory SaleInfoListPrice.fromJson(Map<String, dynamic> json) =>
+      SaleInfoListPrice(
+        amount: json["amount"]?.toDouble(),
+        currencyCode: json["currencyCode"],
+      );
+
+  Map<String, dynamic> toJson() => {
+    "amount": amount,
+    "currencyCode": currencyCode,
+  };
+}
+
+class Offer {
+  final int? finskyOfferType;
+  final OfferListPrice? listPrice;
+  final OfferListPrice? retailPrice;
+
+  Offer({this.finskyOfferType, this.listPrice, this.retailPrice});
+
+  factory Offer.fromJson(Map<String, dynamic> json) => Offer(
+    finskyOfferType: json["finskyOfferType"],
+    listPrice:
+        json["listPrice"] == null
+            ? null
+            : OfferListPrice.fromJson(json["listPrice"]),
+    retailPrice:
+        json["retailPrice"] == null
+            ? null
+            : OfferListPrice.fromJson(json["retailPrice"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "finskyOfferType": finskyOfferType,
+    "listPrice": listPrice?.toJson(),
+    "retailPrice": retailPrice?.toJson(),
+  };
+}
+
+class OfferListPrice {
+  final int? amountInMicros;
+  final String? currencyCode;
+
+  OfferListPrice({this.amountInMicros, this.currencyCode});
+
+  factory OfferListPrice.fromJson(Map<String, dynamic> json) => OfferListPrice(
+    amountInMicros: json["amountInMicros"],
+    currencyCode: json["currencyCode"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "amountInMicros": amountInMicros,
+    "currencyCode": currencyCode,
   };
 }
 
@@ -179,11 +266,13 @@ class VolumeInfo {
   final int? pageCount;
   final String? printType;
   final List<String>? categories;
+  final int? averageRating;
+  final int? ratingsCount;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks imageLinks;
+  final ImageLinks? imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -200,11 +289,13 @@ class VolumeInfo {
     this.pageCount,
     this.printType,
     this.categories,
+    this.averageRating,
+    this.ratingsCount,
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
-    required this.imageLinks,
+    this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -238,6 +329,8 @@ class VolumeInfo {
         json["categories"] == null
             ? []
             : List<String>.from(json["categories"]!.map((x) => x)),
+    averageRating: json["averageRating"],
+    ratingsCount: json["ratingsCount"],
     maturityRating: json["maturityRating"],
     allowAnonLogging: json["allowAnonLogging"],
     contentVersion: json["contentVersion"],
@@ -245,7 +338,10 @@ class VolumeInfo {
         json["panelizationSummary"] == null
             ? null
             : PanelizationSummary.fromJson(json["panelizationSummary"]),
-    imageLinks: ImageLinks.fromJson(json["imageLinks"]),
+    imageLinks:
+        json["imageLinks"] == null
+            ? null
+            : ImageLinks.fromJson(json["imageLinks"]),
     language: json["language"],
     previewLink: json["previewLink"],
     infoLink: json["infoLink"],
@@ -268,6 +364,8 @@ class VolumeInfo {
     "printType": printType,
     "categories":
         categories == null ? [] : List<dynamic>.from(categories!.map((x) => x)),
+    "averageRating": averageRating,
+    "ratingsCount": ratingsCount,
     "maturityRating": maturityRating,
     "allowAnonLogging": allowAnonLogging,
     "contentVersion": contentVersion,
@@ -281,10 +379,10 @@ class VolumeInfo {
 }
 
 class ImageLinks {
-  final String smallThumbnail;
-  final String thumbnail;
+  final String? smallThumbnail;
+  final String? thumbnail;
 
-  ImageLinks({required this.smallThumbnail, required this.thumbnail});
+  ImageLinks({this.smallThumbnail, this.thumbnail});
 
   factory ImageLinks.fromJson(Map<String, dynamic> json) => ImageLinks(
     smallThumbnail: json["smallThumbnail"],

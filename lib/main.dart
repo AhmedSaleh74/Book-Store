@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           create:
               (context) => NewestBooksCubit(
                 homeRepo: getIt.get<HomeRepoImplementation>(),
-              ),
+              )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
