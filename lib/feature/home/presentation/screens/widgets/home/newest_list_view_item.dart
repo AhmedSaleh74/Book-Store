@@ -65,5 +65,5 @@ class BookListViewItem extends StatelessWidget {
   }
 
   void navigateToBookDetailsScreen(BuildContext context) =>
-      context.push(AppRoutes.kBookDetails);
+      context.push(AppRoutes.kBookDetails, extra: bookModel);
 }

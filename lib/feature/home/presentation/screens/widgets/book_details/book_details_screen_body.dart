@@ -1,5 +1,7 @@
 import 'package:bookly_app/feature/home/presentation/screens/widgets/book_details/similar_books_section.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../manager/similar_books_cubit/similar_books_cubit.dart';
 import '../home/custom_app_bar.dart';
 import 'books_details_section.dart';
 
