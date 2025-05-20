@@ -20,7 +20,7 @@ class BookListViewItem extends StatelessWidget {
         children: [
           const SizedBox(
             height: 126,
-            child: BookImageCard(imagePath: kTestImage, aspectRatio: 2.5 / 4),
+            child: BookImageCard(imageURL: kTestImage, aspectRatio: 2.5 / 4),
           ),
           const SizedBox(width: 30),
           Expanded(

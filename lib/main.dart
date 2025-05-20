@@ -9,7 +9,7 @@ import 'core/utils/theming/colors.dart';
 import 'feature/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 
 void main() {
-  setup();
+  setupServiceLocator();
   runApp(const MyApp());
 }
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           create:
               (context) => FeaturedBooksCubit(
                 homeRepo: getIt.get<HomeRepoImplementation>(),
-              ),
+              )..fetchFeaturedBooks(),
         ),
         BlocProvider(
           create:

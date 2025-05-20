@@ -10,7 +10,7 @@ class SimilarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 12.0),
-      child: BookImageCard(imagePath: kTestImage),
+      child: BookImageCard(imageURL: kTestImage),
     );
   }
 }
